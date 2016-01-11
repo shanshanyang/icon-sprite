@@ -1,0 +1,30 @@
+{
+  "name": "dxsp-assets",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "dependencies": {},
+  "devDependencies": {
+    "connect": "^3.4.0",
+    "del": "^2.1.0",
+    "gulp": "^3.9.0",
+    "gulp-if": "^2.0.0",
+    "gulp-inject-string": "^1.0.0",
+    "gulp-load-plugins": "^1.1.0",
+    "gulp-replace": "^0.5.4",
+    "gulp-sass": "^2.1.0",
+    "handlebars": "^4.0.5",
+    "lodash-node": "^3.10.1",
+    "require-dir": "^0.3.0",
+    "run-sequence": "^1.1.5",
+    "serve-static": "^1.10.0",
+    "sprity": "^1.0.8",
+    "sprity-gm": "^1.0.2"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

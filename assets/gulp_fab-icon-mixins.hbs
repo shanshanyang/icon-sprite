@@ -1,0 +1,78 @@
+{{#each layouts}}
+  {{#each layout.items}}
+    ${{cssesc meta.name}}: {{basePosX x meta}}px {{basePosY y meta}}px {{baseDimVS meta.width meta}}px {{baseDimVS meta.height meta}}px;
+  {{/each}}
+{{/each}}
+
+@mixin sprite-bg-size($sprite) {
+  $size: nth($sprite, 3);
+  background-size: $size auto;
+}
+
+@mixin sprite-width($sprite) {
+  width: nth($sprite, 3);
+}
+
+@mixin sprite-height($sprite) {
+  height: nth($sprite, 4);
+}
+
+@function sprite-width($sprite) {
+  @return nth($sprite, 3);
+}
+
+@function sprite-height($sprite) {
+  @return nth($sprite, 4);
+}
+
+@mixin sprite-position($sprite) {
+  $sprite-offset-x: nth($sprite, 1);
+  $sprite-offset-y: nth($sprite, 2);
+  background-position: $sprite-offset-x  $sprite-offset-y;
+}
+
+@mixin fab-icon($sprite, $display: inline-block, $pseudo:'base', $rotate:false, $origin: content-box, $padding: 0) {
+
+  {{#each layouts}}
+    {{#each sprites}}
+    ${{cssesc ../classname}}: '{{escimage url}}';
+    $size: {{baseWidth}}px auto;
+    {{/each}}
+  {{/each}}
+
+  $extensionPrefix: '&';
+
+  @if($pseudo == 'after' or $pseudo == 'before') {
+    $extensionPrefix:  '&:' + $pseudo;
+  }
+
+  #{$extensionPrefix} {
+    @include sprite-position($sprite);
+    background-image: url($icon);
+    background-size: $size;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    display: $display;
+    @include sprite-width($sprite);
+    @include sprite-height($sprite);
+    background-origin: $origin;
+    padding: $padding;
+
+    @if($pseudo == 'after' or $pseudo == 'before') {
+      content: '';
+      vertical-align: middle;
+    }
+
+    @if(($pseudo == 'after' or $pseudo == 'before') and $rotate == true) {
+      transform: rotate(-90deg);
+    }
+
+     @if($pseudo == 'before') {
+      margin-right: 5px;
+     }
+
+     @if($pseudo == 'after') {
+      margin-left: 5px;
+     }
+  }
+}

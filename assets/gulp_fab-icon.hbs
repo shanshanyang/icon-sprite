@@ -1,0 +1,17 @@
+{{#each layouts}}
+  {{#each layout.items}}
+  	{{{selector meta.name ''}}} {
+	  @include fab-icon(${{meta.name}});
+	}
+
+  	{{#subStringCond meta.name '_hover'}}
+	{{{selector meta.name 'before'}}} {
+	  @include fab-icon(${{meta.name}}, $pseudo: 'before');
+	}
+
+	{{{selector meta.name 'after'}}} {
+	  @include fab-icon(${{meta.name}}, $pseudo: 'after');
+	}
+  	{{/subStringCond}}
+  {{/each}}
+{{/each}}

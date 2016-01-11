@@ -1,0 +1,17 @@
+{
+  "name": "fab-icon",
+  "description": "Generate device proper sprite image and sass, css file from individual image asset",
+  "keywords": [
+    "victoriassecret",
+    "gulp",
+    "icon",
+    "sprite"
+  ],
+  "version": "0.1.2",
+  "homepage": "https://stash.lbidts.com/projects/FEWD/repos/fab-icon/browse",
+  "authors": [
+    "shanshan yang(syang@lb.com)"
+  ],
+  "main": "demo/index.html",
+  "ignore": []
+}
